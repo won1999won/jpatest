@@ -1,9 +1,11 @@
 package com.ohgiraffers.section02.crud;
 
+import jakarta.persistence.Entity;
 import jakarta.persistence.EntityManager;
 import jakarta.persistence.EntityTransaction;
+import org.hibernate.mapping.DenormalizedTable;
 
-public class EntityManagerCRUD {
+public class EntityMangerCRUD {
 
     private EntityManager entityManager;
 
@@ -11,9 +13,11 @@ public class EntityManagerCRUD {
     public Menu findMenuByMenuCode(int menuCode) {
         entityManager = EntityManagerGenerator.getInstance();
         return entityManager.find(Menu.class, menuCode);
+
     }
 
     /* 2. 새로운 메뉴 저장하는 기능 */
+
     public Long saveAndReturnAllCount(Menu newMenu) {
         entityManager = EntityManagerGenerator.getInstance();
 
@@ -29,8 +33,8 @@ public class EntityManagerCRUD {
 
     /* 3. 메뉴 개수 조회하는 기능 */
     private Long getCount(EntityManager entityManager) {
-        //JPQL 문법 -> 나중에 별도 챕터에서 다룸
-        return entityManager.createQuery("SELECT count(*) FROM Section02Menu", Long.class).getSingleResult();
+        // JPQL 문법 -> 나중에 별도 챕터에서 다룸
+        return entityManager.createQuery("SELECT COUNT(*) FROM Section02Menu", Long.class).getSingleResult();
     }
 
     /* 4. 메뉴 이름 수정하는 기능 */

@@ -12,7 +12,6 @@ public class EntityManagerGeneratorTests {
     @Test
     @DisplayName("엔티티 매니저 팩토리 생성 확인")
     void testGenerateEntityManagerFactory() {
-
         //given
 
         //when
@@ -20,35 +19,35 @@ public class EntityManagerGeneratorTests {
 
         //then
         assertNotNull(factory);
+
     }
 
     @Test
     @DisplayName("엔티티 매니저 팩토리 싱글톤 인스턴스 확인")
     void testIsEntityManagerFactorySingletonInstance() {
-
         //given
 
         //when
         EntityManagerFactory factory1 = EntityManagerFactoryGenerator.getInstance();
-        EntityManagerFactory factory2= EntityManagerFactoryGenerator.getInstance();
+        EntityManagerFactory factory2 = EntityManagerFactoryGenerator.getInstance();
 
         //then
-        assertEquals(factory1,factory2);
+        assertEquals(factory1, factory2);
+
     }
 
     @Test
-    @DisplayName("앤티티 매니저 생성 확인")
+    @DisplayName("엔티티 매니저 생성 확인")
     void testGenerateEntityManager() {
-
         //given
         //when
         EntityManager entityManager = EntityManagerGenerator.getInstance();
         //then
         assertNotNull(entityManager);
-    }
 
+    }
     @Test
-    @DisplayName("앤티티 매니저 스코프 확인")
+    @DisplayName("엔티티 매니저 스코프 확인")
     void testEntityManagerLifeCycle() {
         //given
         //when
@@ -56,5 +55,6 @@ public class EntityManagerGeneratorTests {
         EntityManager entityManager2 = EntityManagerGenerator.getInstance();
         //then
         assertNotEquals(entityManager1, entityManager2);
+
     }
 }
