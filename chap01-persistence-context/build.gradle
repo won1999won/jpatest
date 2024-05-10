@@ -10,10 +10,17 @@ repositories {
 }
 
 dependencies {
+<<<<<<< HEAD
     implementation 'com.mysql:mysql-connector-j:8.0.33'
     implementation 'org.hibernate.orm:hibernate-core:6.3.1.Final'
     testImplementation platform('org.junit:junit-bom:5.9.1')
     testImplementation 'org.junit.jupiter:junit-jupiter'
+=======
+    testImplementation platform('org.junit:junit-bom:5.9.1')
+    testImplementation 'org.junit.jupiter:junit-jupiter'
+    implementation 'com.mysql:mysql-connector-j:8.0.33'
+    implementation 'org.hibernate.orm:hibernate-core:6.3.1.Final'
+>>>>>>> 3e5063d4ed531262628bd6961c5de00a892745c3
 }
 
 test {
