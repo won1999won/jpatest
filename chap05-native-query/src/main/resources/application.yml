@@ -12,7 +12,5 @@ spring:
       naming:
         physical-strategy: org.hibernate.boot.model.naming.CamelCaseToUnderscoresNamingStrategy
     properties:
-     hibernate:
-     format_sql: true
-    mapping-resources:
-      - section08/namedquery/menu-query.xml
+      hibernate:
+      format_sql: true
