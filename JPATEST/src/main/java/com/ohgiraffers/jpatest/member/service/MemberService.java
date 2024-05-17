@@ -19,12 +19,14 @@ public class MemberService {
     private final ModelMapper modelMapper;
     private final MemberService memberService;
 
+
     public Page<MemberDTO> list(Pageable pageable) {
         pageable = PageRequest.of(pageable.getPageNumber() <= 0 ? 0 : pageable.getPageNumber() - 1, pageable.getPageSize(), Sort.by("menuCode").descending());
         Page<Member> memberList = memberRepository.findAll(pageable);
 
         return memberList.map(member -> modelMapper.map(member, MemberDTO.class));
     }
+
 
     @Transactional
     public void regist(MemberDTO memberDTO) {
@@ -33,12 +35,13 @@ public class MemberService {
 
     @Transactional
     public void modify(MemberDTO memberDTO) {
-        Member foundMember = memberRepository.findById((long) memberDTO.getMemberNo()).orElseThrow(IllegalArgumentException::new);
+        Member foundMember = memberRepository.findById(memberDTO.getMemberNo()).orElseThrow(IllegalArgumentException::new);
         foundMember.modify(memberDTO.getMemberName());
     }
 
     @Transactional
-    public void delete(Member memberNo) {
-        memberRepository.delete(memberNo);
+    public void delete(Integer memberNo) {
+
+        memberRepository.deleteById(memberNo);
     }
 }
